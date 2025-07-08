@@ -1,0 +1,23 @@
+services:
+  genai-server:
+    image: ex-genai:1.0.0
+    container_name: ex-genai
+    ports:
+      - "50051:50051"
+    networks:
+      - grpc-net
+
+  grpcui:
+    image: fullstorydev/grpcui
+    container_name: ex-grpc
+    depends_on:
+      - genai-server
+    networks:
+      - grpc-net
+    ports:
+      - "8004:8004"
+    command: ["-plaintext", "genai-server:50051"]
+
+networks:
+  grpc-net:
+    driver: bridge

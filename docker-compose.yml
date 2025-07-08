@@ -2,6 +2,11 @@ services:
   genai-server:
     image: ex-genai:1.0.0
     container_name: ex-genai
+    restart: always
+    environment:
+      TZ: "Asia/Jakarta"
+    volumes:
+      - /opt/.venv
     ports:
       - "50051:50051"
     networks:

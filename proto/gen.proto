@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service TextGenerator {
+  rpc Generate (TextRequest) returns (TextResponse) {}
+}
+
+service ImageGenerator {
+  rpc Generate (TextRequest) returns (ImageResponse) {}
+}
+
+message TextRequest {
+  string prompt = 1;
+  int32 max_length = 2;
+}
+
+message TextResponse {
+  string result = 1;
+}
+
+message ImageResponse {
+  string image_base64 = 1;
+}

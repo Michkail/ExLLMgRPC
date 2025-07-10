@@ -4,4 +4,4 @@ services:
     container_name: ex-grpc
     ports:
       - "8004:8080"
-    command: ["-plaintext", "genai-server:50051"]
+    command: ["-plaintext", "192.168.8.220:50051"]

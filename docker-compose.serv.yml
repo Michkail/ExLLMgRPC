@@ -9,5 +9,4 @@ services:
       - /opt/.venv
     ports:
       - "50051:50051"
-    networks:
-      - grpc-net
+    command: ["sh", "-c", "uv run server.py"]

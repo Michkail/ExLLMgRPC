@@ -14,5 +14,5 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV PATH="/root/.local/bin:$PATH"
 
 RUN uv sync
-
 RUN uv pip install torch
+RUN uv pip install accelerate
